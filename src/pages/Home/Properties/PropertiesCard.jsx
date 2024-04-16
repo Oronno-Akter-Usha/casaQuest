@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const PropertiesCard = ({ data }) => {
   const {
+    id,
     image,
     estate_title,
     segment_name,
@@ -18,7 +19,7 @@ const PropertiesCard = ({ data }) => {
   console.log(data);
   return (
     <div>
-      <div className="card  bg-base-100 shadow-xl">
+      <div className="card shadow-xl">
         <figure>
           <img className="h-[256px] w-full" src={image} alt="house" />
           <span className="absolute px-5 py-2 z-[1] bg-[#242425e6] text-white top-0 right-0 rounded-sm">
@@ -46,8 +47,8 @@ const PropertiesCard = ({ data }) => {
 
           <div className="flex justify-between items-center">
             <p className="font-medium text-xl">{price}</p>
-            <Link>
-              <button className="btn px-5 bg-[#5d0af7] text-white hover:text-[#5d0af7]">
+            <Link to={`/property/${id}`}>
+              <button className="btn px-5 bg-[#7a42ff] text-white hover:text-[#7a42ff]">
                 View Property
               </button>
             </Link>

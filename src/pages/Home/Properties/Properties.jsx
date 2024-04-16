@@ -13,6 +13,11 @@ const Properties = () => {
           <PropertiesCard key={data.id} data={data}></PropertiesCard>
         ))}
       </div>
+      <div className="flex justify-center">
+        <button className="btn bg-[#7a42ff] text-white mt-10 ">
+          Show More
+        </button>
+      </div>
     </div>
   );
 };
