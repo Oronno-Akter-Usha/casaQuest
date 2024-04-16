@@ -2,6 +2,7 @@ import { IoBedOutline } from "react-icons/io5";
 import { PiBathtubBold } from "react-icons/pi";
 import { TbRulerMeasure } from "react-icons/tb";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const PropertiesCard = ({ data }) => {
   const {
@@ -45,9 +46,11 @@ const PropertiesCard = ({ data }) => {
 
           <div className="flex justify-between items-center">
             <p className="font-medium text-xl">{price}</p>
-            <button className="btn px-5 bg-[#5d0af7] text-white hover:text-[#5d0af7]">
-              View Property
-            </button>
+            <Link>
+              <button className="btn px-5 bg-[#5d0af7] text-white hover:text-[#5d0af7]">
+                View Property
+              </button>
+            </Link>
           </div>
         </div>
       </div>
