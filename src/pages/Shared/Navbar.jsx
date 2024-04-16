@@ -5,26 +5,20 @@ const Navbar = () => {
     <>
       <NavLink
         to={"/"}
-        className={({ isActive }) =>
-          isActive ? "font-extrabold mr-10" : "mr-10"
-        }
+        className={({ isActive }) => (isActive ? "font-bold mr-10" : "mr-10")}
       >
         Home
       </NavLink>
 
       <NavLink
         to={"/about"}
-        className={({ isActive }) =>
-          isActive ? "font-extrabold mr-10" : "mr-10"
-        }
+        className={({ isActive }) => (isActive ? "font-bold mr-10" : "mr-10")}
       >
         About
       </NavLink>
       <NavLink
         to={"/contact"}
-        className={({ isActive }) =>
-          isActive ? "font-extrabold mr-10" : "mr-10"
-        }
+        className={({ isActive }) => (isActive ? "font-bold mr-10" : "mr-10")}
       >
         Contact
       </NavLink>
@@ -33,7 +27,7 @@ const Navbar = () => {
   return (
     <div
       className="navbar drop-shadow-xl sticky top-0 
-      backdrop-blur-sm bg-[#4e08cfbd] shadow-xl z-10 text-white mb-10"
+      backdrop-blur-sm bg-[#4e08cfbd] shadow-xl z-10 text-white mb-[100px]"
     >
       <div className="mr-12">
         <div className="dropdown">
