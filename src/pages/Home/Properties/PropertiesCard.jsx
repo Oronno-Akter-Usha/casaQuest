@@ -1,6 +1,7 @@
 import { IoBedOutline } from "react-icons/io5";
 import { PiBathtubBold } from "react-icons/pi";
 import { TbRulerMeasure } from "react-icons/tb";
+import PropTypes from "prop-types";
 
 const PropertiesCard = ({ data }) => {
   const {
@@ -10,7 +11,6 @@ const PropertiesCard = ({ data }) => {
     price,
     status,
     area,
-    location,
     bathroom,
     bedroom,
   } = data;
@@ -45,7 +45,7 @@ const PropertiesCard = ({ data }) => {
 
           <div className="flex justify-between items-center">
             <p className="font-medium text-xl">{price}</p>
-            <button className="btn px-5 bg-[#5d0af7] text-white">
+            <button className="btn px-5 bg-[#5d0af7] text-white hover:text-[#5d0af7]">
               View Property
             </button>
           </div>
@@ -53,6 +53,10 @@ const PropertiesCard = ({ data }) => {
       </div>
     </div>
   );
+};
+
+PropertiesCard.propTypes = {
+  data: PropTypes.array,
 };
 
 export default PropertiesCard;
