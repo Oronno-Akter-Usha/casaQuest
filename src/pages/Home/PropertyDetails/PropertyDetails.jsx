@@ -25,7 +25,7 @@ const PropertyDetails = () => {
   } = property;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3">
+    <div className="grid grid-cols-1 md:grid-cols-3 justify-between gap-8">
       <div className="md:col-span-2">
         <div className="flex justify-between  mb-5">
           <div>
@@ -98,6 +98,39 @@ const PropertyDetails = () => {
             ))}
           </ul>
         </div>
+      </div>
+
+      {/* schedule  */}
+
+      <div className="shadow-md bg-[#eae5ff35] p-8 mt-8 mb-4 rounded md:h-[750px] text-center">
+        <h2 className="text-2xl font-bold mb-5">Schedule a Tour</h2>
+        <form className="space-y-4">
+          <input
+            type="text"
+            placeholder="Name"
+            className="input input-bordered w-full max-w-xs"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            className="input input-bordered w-full max-w-xs"
+          />
+          <input
+            type="number"
+            placeholder="Phone"
+            className="input input-bordered w-full max-w-xs"
+          />
+          <input type="date" className="input input-bordered w-full max-w-xs" />
+          <textarea
+            name=""
+            id=""
+            className="border p-4 rounded w-full max-w-xs"
+            placeholder="Message"
+          ></textarea>
+          <button className="w-full btn bg-[#7a42ff] text-white max-w-xs">
+            Submit
+          </button>
+        </form>
       </div>
     </div>
   );
