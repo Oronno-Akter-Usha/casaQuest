@@ -1,10 +1,11 @@
 import Banner from "./Banner/Banner";
+import Properties from "./Properties/Properties";
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <div className="mt-[100px]">a</div>
+      <Properties></Properties>
     </div>
   );
 };

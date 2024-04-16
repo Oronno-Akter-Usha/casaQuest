@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <div
       className="navbar drop-shadow-xl sticky top-0 
-      backdrop-blur-sm bg-[#4e08cfbd] shadow-xl z-10 text-white mb-[100px]"
+      backdrop-blur-sm bg-[#4e08cfbd] shadow-xl z-10 text-white mb-16"
     >
       <div className="mr-12">
         <div className="dropdown">

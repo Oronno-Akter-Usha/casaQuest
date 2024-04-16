@@ -49,7 +49,7 @@ const Banner = () => {
         </SwiperSlide>
       </Swiper>
 
-      <div className="absolute top-[48%] z-[1] text-[#f5f8fc] text-center mx-auto md:max-w-6xl">
+      <div className="absolute top-[40%] z-[1] text-[#f5f8fc] text-center mx-auto md:max-w-6xl">
         <h1 className=" md:text-5xl  font-bold  my-10 hidden md:inline-block w-[70%]">
           Discover Your Perfect Residence with CasaQuest
         </h1>
