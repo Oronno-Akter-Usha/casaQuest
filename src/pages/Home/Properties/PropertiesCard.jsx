@@ -30,7 +30,7 @@ const PropertiesCard = ({ data }) => {
           <h2 className="card-title font-bold">{estate_title} </h2>
           <p>{segment_name}</p>
 
-          <div className="flex my-4">
+          <div className="flex justify-between my-4">
             <p className="flex items-center gap-2 text-lg">
               <IoBedOutline className="text-lg font-medium" />
               {bedroom}

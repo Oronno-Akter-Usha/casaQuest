@@ -30,12 +30,12 @@ const PropertyDetails = () => {
         <div className="flex justify-between  mb-5">
           <div>
             <h2 className="font-bold md:text-3xl">{estate_title}</h2>
-            <p className="flex items-center gap-1 text-xl mt-2">
+            <p className="flex items-center gap-1 md:text-xl mt-2">
               <IoLocationOutline className="text-lg font-medium" />
               {location}
             </p>
           </div>
-          <p className="font-bold text-3xl">{price}</p>
+          <p className="font-bold md:text-3xl">{price}</p>
         </div>
         <div className="flex justify-between">
           <span className="px-3 py-1 bg-[#242425d6] text-white rounded text-sm mb-2">
@@ -50,24 +50,26 @@ const PropertyDetails = () => {
           <p className="font-bold text-xl mt-8 mb-4">Overview</p>
           <hr />
 
-          <div className="flex my-4 justify-between mb-10">
+          <div className="flex flex-col lg:flex-row space-y-5 my-4 justify-between mb-10">
             <p className="font-medium">
               {segment_name}
               <p className="font-normal">Property Type</p>
             </p>
-            <p className="flex items-center gap-2">
-              <IoBedOutline className="text-lg font-medium" />
-              {bedroom}
-            </p>
+            <div className="flex justify-items-start gap-12">
+              <p className="flex items-center gap-2">
+                <IoBedOutline className="text-lg font-medium" />
+                {bedroom}
+              </p>
 
-            <p className="flex items-center gap-2">
-              <PiBathtubBold className="text-lg font-medium" />
-              {bathroom}
-            </p>
-            <p className="flex items-center gap-2">
-              <TbRulerMeasure className="text-lg font-medium" />
-              {area}
-            </p>
+              <p className="flex items-center gap-2">
+                <PiBathtubBold className="text-lg font-medium" />
+                {bathroom}
+              </p>
+              <p className="flex items-center gap-2">
+                <TbRulerMeasure className="text-lg font-medium" />
+                {area}
+              </p>
+            </div>
             <p className="flex items-center gap-2">
               <IoLocationOutline className="text-lg font-medium" />
               {location}
@@ -102,7 +104,7 @@ const PropertyDetails = () => {
 
       {/* schedule  */}
 
-      <div className="shadow-md bg-[#eae5ff35] p-8 mt-8 mb-4 rounded md:h-[750px] text-center">
+      <div className="shadow-md bg-[#eae5ff35] p-8 mt-8 mb-4 rounded h-auto text-center">
         <h2 className="text-2xl font-bold mb-5">Schedule a Tour</h2>
         <form className="space-y-4">
           <input
