@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
+import Navbar from "../pages/Shared/Navbar";
 
 const Root = () => {
   return (
     <div>
-      <h1 className="font-bold text-3xl">Casa Quest</h1>
-      <button className="btn">Button</button>
+      <Navbar></Navbar>
       <Outlet></Outlet>
     </div>
   );
