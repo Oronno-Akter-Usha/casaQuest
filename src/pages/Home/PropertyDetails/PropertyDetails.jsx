@@ -25,9 +25,9 @@ const PropertyDetails = () => {
   } = property;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 justify-between gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 justify-between gap-8 md:max-w-6xl mx-5 md:mx-6 lg:mx-auto mt-32">
       <div className="md:col-span-2">
-        <div className="flex justify-between  mb-5">
+        <div className="flex justify-between mb-5">
           <div>
             <h2 className="font-bold md:text-3xl">{estate_title}</h2>
             <p className="flex items-center gap-1 md:text-xl mt-2">
@@ -47,7 +47,7 @@ const PropertyDetails = () => {
 
         {/* overview */}
         <div className="shadow-md bg-[#eae5ff35] p-5 mt-8 mb-4 rounded">
-          <p className="font-bold text-xl mt-8 mb-4">Overview</p>
+          <p className="font-bold text-lg md:text-xl mt-8 mb-4">Overview</p>
           <hr />
 
           <div className="flex flex-col lg:flex-row space-y-5 my-4 justify-between mb-10">
@@ -79,14 +79,14 @@ const PropertyDetails = () => {
 
         {/* description */}
         <div className="shadow-md bg-[#eae5ff35] p-8 mt-8 mb-4 rounded">
-          <p className="mt-8 mb-4 font-bold text-xl">Description</p>
+          <p className="mt-8 mb-4 font-bold text-lg md:text-xl">Description</p>
           <hr />
           <p className="mt-4">{description}</p>
         </div>
 
         {/* features */}
         <div className="shadow-md bg-[#eae5ff35] p-8 mt-8 mb-4 rounded">
-          <p className="mt-8 mb-4 font-bold text-xl">Features</p>
+          <p className="mt-8 mb-4 font-bold text-lg md:text-xl">Features</p>
           <hr />
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-between mt-4">
             {features.map((feature, i) => (

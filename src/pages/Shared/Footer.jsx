@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-[#09001d] text-white mt-10 grid grid-cols-2 lg:grid-cols-3  justify-between">
+    <footer className="footer p-10 bg-[#09001d] text-white grid grid-cols-2 lg:grid-cols-3  justify-between">
       <nav>
         <h6 className="footer-title">Navigations</h6>
         <a className="link link-hover">About Us</a>
