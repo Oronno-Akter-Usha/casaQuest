@@ -1,8 +1,29 @@
-import { FaGithub } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+// import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
+
+  const { handleSubmit } = useForm();
+
+  // handle login
+  const onSubmit = (data) => {
+    console.log(data);
+    const { email, password } = data;
+
+    signIn(email, password).then((result) => {
+      if (result.user) {
+        // navigate(from);
+      }
+    });
+  };
+
   return (
     <div className="relative w-full h-[700px] md:h-[970px] ">
       <img
@@ -16,7 +37,10 @@ const Login = () => {
           className="card shrink-0 w-full max-w-sm drop-shadow-3xl
 backdrop-blur-sm bg-[#ffffff27] shadow-xl border border-[#ffffffa4] mx-auto "
         >
-          <form className="card-body text-white">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="card-body text-white"
+          >
             <h1 className="text-5xl font-medium text-[#ffffff] text-center mb-7">
               Login
             </h1>
@@ -31,48 +55,55 @@ backdrop-blur-sm bg-[#ffffff27] shadow-xl border border-[#ffffffa4] mx-auto "
             </div>
             <div className="form-control">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Password"
                 className="input bg-transparent border-[#ffffff70] border  placeholder-white"
                 required
               />
-              <label className="mt-2">
-                <a
-                  href="#"
-                  className="label-text-alt link link-hover text-white "
-                >
-                  Forgot password?
-                </a>
-              </label>
+              <span
+                className="absolute top-[200px] right-12"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
             </div>
-
-            {/* or login with google  */}
-            <div className=" flex mt-3">
-              {/* <div className="border border-r-white"></div>    */}
-              <p className="text-center">or login with</p>
-              {/* <div className="border-y-white border"></div> */}
-            </div>
-            <span className="flex justify-center gap-5 mt-5 text-3xl">
-              <FcGoogle />
-              <FaGithub />
-            </span>
+            <label className="mt-2">
+              <a
+                href="#"
+                className="label-text-alt link link-hover text-white "
+              >
+                Forgot password?
+              </a>
+            </label>
 
             <div className="form-control mt-4">
-              <button className="btn bg-white border-none text-black  ">
+              <button
+                onSubmit={handleSubmit(onSubmit)}
+                className="btn bg-white border-none text-black  "
+              >
                 Login
               </button>
             </div>
-
-            <p className="text-white text-base">
-              Don't have an account?
-              <Link to={"/register"}>
-                <button className="btn btn-link text-white text-base m-0 p-2">
-                  Register
-                </button>
-              </Link>
-            </p>
           </form>
+
+          <span className="flex justify-center gap-5 mt-2 text-3xl">
+            <button onClick={() => googleLogin()}>
+              <FcGoogle />
+            </button>
+            <button onClick={() => githubLogin()}>
+              <FaGithub />
+            </button>
+          </span>
+
+          <p className="text-white text-base text-center mb-4">
+            Don't have an account?
+            <Link to={"/register"}>
+              <button className="btn btn-link text-white text-base m-0 p-2">
+                Register
+              </button>
+            </Link>
+          </p>
         </div>
       </div>
     </div>

@@ -1,6 +1,33 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
+import { useForm } from "react-hook-form";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  // navigation systems
+  const navigate = useNavigate();
+  const from = "/";
+
+  const onSubmit = (data) => {
+    const { email, password, photo, name } = data;
+
+    //create user and update profile
+    createUser(email, password).then(() => {
+      updateUserProfile(name, photo).then(() => {
+        navigate(from);
+      });
+    });
+  };
+
   return (
     <div>
       <div className="relative w-full h-[700px] md:h-[970px] ">
@@ -13,47 +40,62 @@ const Register = () => {
         <div className="pt-32">
           <div
             className="card shrink-0 w-full max-w-sm drop-shadow-3xl
-backdrop-blur-sm bg-[#ffffff27] shadow-xl border border-[#ffffffa4] mx-auto "
+              backdrop-blur-sm bg-[#ffffff27] shadow-xl border border-[#ffffffa4] mx-auto "
           >
-            <form className="card-body text-white">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="card-body text-white"
+            >
               <h1 className="text-5xl font-medium text-[#ffffff] text-center mb-7">
                 Register
               </h1>
               <div className="form-control">
                 <input
                   type="text"
-                  name="name"
                   placeholder="Name"
                   className="input bg-transparent border-[#ffffff70] border  placeholder-white mb-3"
-                  required
+                  {...register("name", { required: true })}
                 />
+                {errors.name && (
+                  <span className="text-red-500">This field is required</span>
+                )}
               </div>
               <div className="form-control">
                 <input
                   type="text"
-                  name="photo"
                   placeholder="Photo URL"
                   className="input bg-transparent border-[#ffffff70] border  placeholder-white mb-3"
-                  required
+                  {...register("photo")}
                 />
               </div>
+
               <div className="form-control">
                 <input
                   type="email"
-                  name="email"
                   placeholder="Email"
                   className="input bg-transparent border-[#ffffff70] border  placeholder-white mb-3"
-                  required
+                  {...register("email", { required: true })}
                 />
+                {errors.email && (
+                  <span className="text-red-500">This field is required</span>
+                )}
               </div>
               <div className="form-control">
                 <input
-                  type="password"
-                  name="password"
+                  type={showPassword ? "text" : "password"}
                   placeholder="Password"
                   className="input bg-transparent border-[#ffffff70] border  placeholder-white"
-                  required
+                  {...register("password", { required: true })}
                 />
+                <span
+                  className="absolute top-[335px] right-12"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
+                {errors.password && (
+                  <span className="text-red-500">This field is required</span>
+                )}
               </div>
 
               <div className="form-control mt-4">

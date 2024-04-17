@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logout } = useContext(AuthContext);
+
   const navLink = (
     <>
       <NavLink
@@ -63,39 +67,41 @@ const Navbar = () => {
 
         {/* login  */}
         <div className="navbar-end md:mr-5 w-full">
-          <Link to={"/login"}>
-            <button className="text-[#100130] bg-white px-5 py-1 rounded font-medium">
-              Login
-            </button>
-          </Link>
-          {/* <div className="dropdown dropdown-end ">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
-            <div className="w-10 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img
+                    src={
+                      user?.photoURL ||
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStCJpmc7wNF8Ti2Tuh_hcIRZUGOc23KBTx2A&s"
+                    }
+                  />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <button className="btn btn-sm ">
+                    {user?.displayName || "user name not found"}
+                  </button>
+                </li>
+                <li>
+                  <button onClick={logout} className="btn btn-sm ">
+                    Logout
+                  </button>
+                </li>
+              </ul>
             </div>
-          </div>
-          <ul
-            tabIndex={0}
-            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 text-black"
-          >
-            <li>
-              <a>Profile</a>
-            </li>
-            <li>
-              <a>Update Profile</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
-        </div> */}
+          ) : (
+            <Link to={"/login"}>
+              <button className="text-[#100130] bg-white px-5 py-1 rounded font-medium">
+                Login
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
