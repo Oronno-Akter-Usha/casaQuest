@@ -36,12 +36,17 @@ const Register = () => {
     }
 
     //create user and update profile
-    createUser(email, password).then(() => {
-      toast.success("Successfully Register");
-      updateUserProfile(name, photo).then(() => {
-        navigate(from);
+    createUser(email, password)
+      .then(() => {
+        toast.success("Successfully Register");
+        updateUserProfile(name, photo).then(() => {
+          navigate(from);
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.message);
       });
-    });
   };
 
   return (

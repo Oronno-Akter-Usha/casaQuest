@@ -2,14 +2,32 @@ import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
 
+  const handleSocialLogin = (socialProvider) => {
+    socialProvider()
+      .then((result) => {
+        if (result.user) {
+          navigate(from);
+        }
+        toast.success("Successfully Login");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.message);
+      });
+  };
+
+  // navigation systems
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || "/";
+
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -21,11 +39,12 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         e.target.reset();
-        navigate("/");
+        navigate(from);
         toast.success("Successfully Login");
       })
       .catch((error) => {
         console.error(error);
+        toast.error(error.message);
       });
   };
 
@@ -87,10 +106,10 @@ backdrop-blur-sm bg-[#ffffff27] shadow-xl border border-[#ffffffa4] mx-auto "
           </form>
 
           <span className="flex justify-center gap-5 mt-2 text-3xl">
-            <button onClick={() => googleLogin()}>
+            <button onClick={() => handleSocialLogin(googleLogin)}>
               <FcGoogle />
             </button>
-            <button onClick={() => githubLogin()}>
+            <button onClick={() => handleSocialLogin(githubLogin)}>
               <FaGithub />
             </button>
           </span>

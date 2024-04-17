@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { IoBedOutline, IoLocationOutline } from "react-icons/io5";
 import { PiBathtubBold } from "react-icons/pi";
 import { TbRulerMeasure } from "react-icons/tb";
@@ -42,11 +42,19 @@ const PropertyDetails = () => {
           </div>
           <p className="font-bold md:text-3xl">{price}</p>
         </div>
-        <div className="flex justify-between">
-          <span className="px-3 py-1 bg-[#242425d6] text-white rounded text-sm mb-2">
-            <span className="mr-1">For</span>
-            {status}
-          </span>
+        <div className="flex justify-between items-center">
+          <div>
+            <span className="px-3 py-1 bg-[#242425d6] text-white rounded text-sm mb-2">
+              <span className="mr-1">For</span>
+              {status}
+            </span>
+          </div>
+
+          <Link to={""}>
+            <button className="btn px-5 bg-[#7a42ff] text-white hover:text-[#7a42ff] mb-5">
+              Add Wishlist
+            </button>
+          </Link>
         </div>
         <img className="w-full md:h-auto rounded" src={image} alt="" />
 
@@ -55,10 +63,14 @@ const PropertyDetails = () => {
           <p className="font-bold text-lg md:text-xl mt-8 mb-4">Overview</p>
           <hr />
 
-          <div className="flex flex-col lg:flex-row space-y-5 my-4 justify-between mb-10">
+          <div className=" space-y-5 my-4  mb-10">
             <p className="font-medium">
               {segment_name}
-              <p className="font-normal">Property Type</p>
+              <span className="font-normal ml-4">(property type)</span>
+            </p>
+            <p className="flex items-center gap-2">
+              <IoLocationOutline className="text-lg font-medium" />
+              {location}
             </p>
             <div className="flex justify-items-start gap-12">
               <p className="flex items-center gap-2">
@@ -75,10 +87,6 @@ const PropertyDetails = () => {
                 {area}
               </p>
             </div>
-            <p className="flex items-center gap-2">
-              <IoLocationOutline className="text-lg font-medium" />
-              {location}
-            </p>
           </div>
         </div>
 
