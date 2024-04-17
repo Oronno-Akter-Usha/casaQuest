@@ -3,6 +3,7 @@ import { IoBedOutline, IoLocationOutline } from "react-icons/io5";
 import { PiBathtubBold } from "react-icons/pi";
 import { TbRulerMeasure } from "react-icons/tb";
 import { FaRegCheckCircle } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const PropertyDetails = () => {
   const properties = useLoaderData();
@@ -26,6 +27,10 @@ const PropertyDetails = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 justify-between gap-8 md:max-w-6xl mx-5 md:mx-6 lg:mx-auto mt-32">
+      <Helmet>
+        <title>Casa Quest-PropertyDetails page</title>
+        <link rel="" href="/" />
+      </Helmet>
       <div className="md:col-span-2">
         <div className="flex justify-between mb-5">
           <div>

@@ -3,6 +3,9 @@ import { PiBathtubBold } from "react-icons/pi";
 import { TbRulerMeasure } from "react-icons/tb";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const PropertiesCard = ({ data }) => {
   const {
@@ -18,7 +21,7 @@ const PropertiesCard = ({ data }) => {
   } = data;
   console.log(data);
   return (
-    <div>
+    <div data-aos="fade-up" data-aos-duration="2000">
       <div className="card shadow-xl">
         <figure>
           <img className="h-[256px] w-full" src={image} alt="house" />
