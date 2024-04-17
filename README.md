@@ -2,5 +2,5 @@
 
 
 # Packages 
--React Hook form
--Swiper Slider
+- React Hook form
+- Swiper Slider
