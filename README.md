@@ -1,7 +1,8 @@
 # Casa Quest
 
 
-- Home Search: Users can search for homes and properties based on various criteria such as location, price range, number of bedrooms, etc.
+- Home Search:
+  Users can search for homes and properties based on various criteria such as location, price range, number of bedrooms, etc.
 - Property Search: Users can search for properties based on location, price range, property type, and other customizable filters.
 - Detailed Listings: Each property listing includes essential details such as price, size, amenities, and a photo gallery.
 - User Accounts: Registered users can save favorite properties, track their search history, and receive personalized recommendations.
