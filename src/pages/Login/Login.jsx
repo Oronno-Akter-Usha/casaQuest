@@ -1,27 +1,32 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-// import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
 
-  const { handleSubmit } = useForm();
+  const navigate = useNavigate();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
 
-  // handle login
-  const onSubmit = (data) => {
-    console.log(data);
-    const { email, password } = data;
-
-    signIn(email, password).then((result) => {
-      if (result.user) {
-        // navigate(from);
-      }
-    });
+    // sign in user in firebase
+    signIn(email, password)
+      .then((result) => {
+        console.log(result.user);
+        e.target.reset();
+        navigate("/");
+        toast.success("Successfully Login");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -37,10 +42,7 @@ const Login = () => {
           className="card shrink-0 w-full max-w-sm drop-shadow-3xl
 backdrop-blur-sm bg-[#ffffff27] shadow-xl border border-[#ffffffa4] mx-auto "
         >
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="card-body text-white"
-          >
+          <form onSubmit={handleLogin} className="card-body text-white">
             <h1 className="text-5xl font-medium text-[#ffffff] text-center mb-7">
               Login
             </h1>
@@ -78,10 +80,7 @@ backdrop-blur-sm bg-[#ffffff27] shadow-xl border border-[#ffffffa4] mx-auto "
             </label>
 
             <div className="form-control mt-4">
-              <button
-                onSubmit={handleSubmit(onSubmit)}
-                className="btn bg-white border-none text-black  "
-              >
+              <button className="btn bg-white border-none text-black  ">
                 Login
               </button>
             </div>
