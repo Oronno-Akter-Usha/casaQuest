@@ -12,3 +12,4 @@
 # Packages 
 - React Hook form
 - Swiper Slider
+- AOS
