@@ -4,6 +4,7 @@ import { PiBathtubBold } from "react-icons/pi";
 import { TbRulerMeasure } from "react-icons/tb";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import { saveWishlistProperty } from "../../../utility/localstorage";
 
 const PropertyDetails = () => {
   const properties = useLoaderData();
@@ -25,7 +26,9 @@ const PropertyDetails = () => {
     image,
   } = property;
 
-  const handleWishlist = () => {};
+  const handleWishlist = () => {
+    saveWishlistProperty(idInt);
+  };
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 justify-between gap-8 md:max-w-6xl mx-5 md:mx-6 lg:mx-auto mt-32">

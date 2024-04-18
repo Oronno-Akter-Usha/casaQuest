@@ -10,6 +10,7 @@ import Register from "../pages/Login/Register";
 import PrivateRoute from "./PrivateRoute";
 import Profile from "../pages/Profile/Profile";
 import UpdateProfile from "../pages/Profile/UpdateProfile";
+import Wishlist from "../pages/Wishlist/Wishlist";
 // import Wishlist from "../pages/Wishlist/Wishlist";
 
 const router = createBrowserRouter([
@@ -72,14 +73,18 @@ const router = createBrowserRouter([
         ),
       },
 
-      // {
-      //   path: "/wishList",
-      //   element: <Wishlist></Wishlist>,
-      //   loader: () =>
-      //     fetch(
-      //       "https://oronno-akter-usha.github.io/real-estate-json/popular-properties.json"
-      //     ),
-      // },
+      {
+        path: "/wishList",
+        element: (
+          <PrivateRoute>
+            <Wishlist></Wishlist>
+          </PrivateRoute>
+        ),
+        loader: () =>
+          fetch(
+            "https://oronno-akter-usha.github.io/real-estate-json/popular-properties.json"
+          ),
+      },
     ],
   },
 ]);
