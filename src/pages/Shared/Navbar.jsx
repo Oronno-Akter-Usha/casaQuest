@@ -26,6 +26,13 @@ const Navbar = () => {
       >
         Contact
       </NavLink>
+
+      <NavLink
+        to={"/wishList"}
+        className={({ isActive }) => (isActive ? "font-bold mr-10" : "mr-10")}
+      >
+        Wishlist Properties
+      </NavLink>
     </>
   );
   return (
@@ -69,8 +76,8 @@ const Navbar = () => {
         <div className="navbar-end md:mr-5 w-full">
           {user ? (
             <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar ">
+                <div className="w-10 rounded-full ">
                   <img
                     src={
                       user?.photoURL ||
@@ -88,6 +95,16 @@ const Navbar = () => {
                     {user?.displayName || "user name not found"}
                   </button>
                 </li>
+                <Link to={"profile"}>
+                  <li>
+                    <button className="btn btn-sm ">Profile</button>
+                  </li>
+                </Link>
+                <Link to={"updateProfile"}>
+                  <li>
+                    <button className="btn btn-sm ">Update Profile</button>
+                  </li>
+                </Link>
                 <li>
                   <button onClick={logout} className="btn btn-sm ">
                     Logout

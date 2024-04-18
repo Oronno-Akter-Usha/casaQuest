@@ -25,6 +25,8 @@ const PropertyDetails = () => {
     image,
   } = property;
 
+  const handleWishlist = () => {};
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 justify-between gap-8 md:max-w-6xl mx-5 md:mx-6 lg:mx-auto mt-32">
       <Helmet>
@@ -51,7 +53,10 @@ const PropertyDetails = () => {
           </div>
 
           <Link to={""}>
-            <button className="btn px-5 bg-[#7a42ff] text-white hover:text-[#7a42ff] mb-5">
+            <button
+              onClick={handleWishlist}
+              className="btn px-5 bg-[#7a42ff] text-white hover:text-[#7a42ff] mb-5"
+            >
               Add Wishlist
             </button>
           </Link>
