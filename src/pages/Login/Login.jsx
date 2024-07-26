@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../providers/AuthProvider";
@@ -8,6 +8,10 @@ import toast from "react-hot-toast";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Reset scroll position on component mount
+  }, []);
 
   const handleSocialLogin = (socialProvider) => {
     socialProvider()

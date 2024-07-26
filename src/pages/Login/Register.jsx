@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
@@ -14,6 +14,10 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Reset scroll position on component mount
+  }, []);
 
   // navigation systems
   const navigate = useNavigate();
@@ -35,7 +39,7 @@ const Register = () => {
       return;
     }
 
-    //create user and update profile
+    //create user
     createUser(email, password)
       .then(() => {
         toast.success("Successfully Register");
