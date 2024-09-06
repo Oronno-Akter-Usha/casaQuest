@@ -7,15 +7,15 @@ const Properties = () => {
   return (
     <div className="py-16">
       <h2
-        className="text-3xl md:text-4xl font-bold mb-2 md:mb-4"
+        className="text-3xl md:text-4xl font-bold mb-2 md:mb-4 text-center"
         data-aos="fade-right"
         data-aos-duration="2000"
       >
         Popular Properties
       </h2>
       <p
-        className="mb-12 md:text-base"
-        data-aos="fade-right"
+        className="mb-12 md:text-base text-center"
+        data-aos="fade-left"
         data-aos-duration="2000"
       >
         These are our popular properties
