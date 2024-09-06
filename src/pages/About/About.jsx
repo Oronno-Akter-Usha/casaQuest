@@ -49,7 +49,7 @@ const About = () => {
       </section>
 
       {/* Vision & Mission Section */}
-      <section className="bg-gray-100 p-8 rounded-lg my-12">
+      <section className="bg-white shadow-xl p-8 rounded-lg my-12">
         <div className="text-center mb-10">
           <h3 className="text-2xl md:text-3xl font-semibold text-gray-800">
             Our Vision & Mission
