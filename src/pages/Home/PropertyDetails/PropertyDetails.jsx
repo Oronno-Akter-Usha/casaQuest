@@ -5,8 +5,11 @@ import { TbRulerMeasure } from "react-icons/tb";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import { saveWishlistProperty } from "../../../utility/localstorage";
+import useScroll from "../../../hooks/useScroll";
 
 const PropertyDetails = () => {
+  useScroll();
+
   const properties = useLoaderData();
   const { id } = useParams();
   const idInt = parseInt(id);

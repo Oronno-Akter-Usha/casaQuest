@@ -95,16 +95,6 @@ const Navbar = () => {
                     {user?.displayName || "user name not found"}
                   </button>
                 </li>
-                <Link to={"profile"}>
-                  <li>
-                    <button className="btn btn-sm ">Profile</button>
-                  </li>
-                </Link>
-                <Link to={"updateProfile"}>
-                  <li>
-                    <button className="btn btn-sm ">Update Profile</button>
-                  </li>
-                </Link>
                 <li>
                   <button onClick={logout} className="btn btn-sm ">
                     Logout

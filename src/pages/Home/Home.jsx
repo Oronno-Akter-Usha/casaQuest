@@ -4,7 +4,13 @@ import Properties from "./Properties/Properties";
 import OurServices from "./OurServices/OurServices";
 import Testimonial from "../Shared/Testimonial";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+import useScroll from "../../hooks/useScroll";
+AOS.init();
+
 const Home = () => {
+  useScroll();
   return (
     <div className="md:max-w-6xl mx-5 md:mx-6 lg:mx-auto mt-24">
       <Helmet>
@@ -18,7 +24,11 @@ const Home = () => {
       <Testimonial />
 
       {/* Call-to-Action Section */}
-      <section className="py-12 text-center my-5">
+      <section
+        className="py-12 text-center my-5"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
         <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-4">
           Ready to Find Your Dream Home?
         </h2>

@@ -8,8 +8,6 @@ import PropertyDetails from "../pages/Home/PropertyDetails/PropertyDetails";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Login/Register";
 import PrivateRoute from "./PrivateRoute";
-import Profile from "../pages/Profile/Profile";
-import UpdateProfile from "../pages/Profile/UpdateProfile";
 import Wishlist from "../pages/Wishlist/Wishlist";
 // import Wishlist from "../pages/Wishlist/Wishlist";
 
@@ -54,23 +52,6 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact></Contact>,
-      },
-      {
-        path: "/profile",
-        element: (
-          <PrivateRoute>
-            <Profile></Profile>
-          </PrivateRoute>
-        ),
-      },
-
-      {
-        path: "/UpdateProfile",
-        element: (
-          <PrivateRoute>
-            <UpdateProfile></UpdateProfile>
-          </PrivateRoute>
-        ),
       },
 
       {

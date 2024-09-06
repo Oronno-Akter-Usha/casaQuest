@@ -1,7 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import Testimonial from "../Shared/Testimonial";
+import useScroll from "../../hooks/useScroll";
 
 const About = () => {
+  useScroll();
   return (
     <div className="mt-20 mx-5 md:mx-10 lg:mx-20">
       {/* Helmet for page title and metadata */}
@@ -12,17 +14,29 @@ const About = () => {
 
       {/* Header Section */}
       <section className="text-center my-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+        <h2
+          className="text-3xl md:text-4xl font-bold text-gray-800"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
           About Us
         </h2>
-        <p className="mt-4 text-gray-600 text-lg md:text-xl">
+        <p
+          className="mt-4 text-gray-600 text-lg md:text-xl"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
           Discover more about CasaQuest and our journey to helping you find your
           dream home.
         </p>
       </section>
 
       {/* Main Content Section */}
-      <section className="md:flex items-center my-12 md:my-20">
+      <section
+        className="md:flex items-center my-12 md:my-20"
+        data-aos="fade-right"
+        data-aos-duration="2000"
+      >
         {/* Image section */}
         <div className="md:w-1/2 mb-8 md:mb-0">
           <img
@@ -33,7 +47,11 @@ const About = () => {
         </div>
 
         {/* Text content */}
-        <div className="md:w-1/2 md:pl-10">
+        <div
+          className="md:w-1/2 md:pl-10"
+          data-aos="fade-right"
+          data-aos-duration="2000"
+        >
           <h3 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">
             Who We Are
           </h3>
@@ -49,7 +67,11 @@ const About = () => {
       </section>
 
       {/* Vision & Mission Section */}
-      <section className="bg-white shadow-xl p-8 rounded-lg my-12">
+      <section
+        className="bg-white shadow-xl p-8 rounded-lg my-12"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
         <div className="text-center mb-10">
           <h3 className="text-2xl md:text-3xl font-semibold text-gray-800">
             Our Vision & Mission

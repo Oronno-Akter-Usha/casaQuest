@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getStoredWishlistProperty } from "../../utility/localstorage";
 import WishlistCard from "./WishlistCard";
+import useScroll from "../../hooks/useScroll";
 
 const Wishlist = () => {
+  useScroll();
+
   const [wishlistProperties, setWishlistProperties] = useState([]);
 
   const properties = useLoaderData();

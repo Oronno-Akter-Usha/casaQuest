@@ -1,6 +1,8 @@
 import { Helmet } from "react-helmet-async";
+import useScroll from "../../hooks/useScroll";
 
 const Contact = () => {
+  useScroll();
   return (
     <div className="mt-20 mx-5 md:mx-10 lg:mx-20">
       <Helmet>
@@ -10,16 +12,28 @@ const Contact = () => {
 
       {/* Header Section */}
       <section className="text-center my-10">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
+        <h1
+          className="text-4xl md:text-5xl font-bold text-gray-800"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
           Contact Us
         </h1>
-        <p className="mt-4 text-gray-600 text-lg md:text-xl">
+        <p
+          className="mt-4 text-gray-600 text-lg md:text-xl"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
           We are here to assist you. Reach out to us today!
         </p>
       </section>
 
       {/* Contact Form Section */}
-      <section className="md:flex md:justify-center my-12">
+      <section
+        className="md:flex md:justify-center my-12"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
         <div className="w-full max-w-lg bg-white rounded-lg shadow-md p-6">
           <form>
             <div className="mb-4">
@@ -80,16 +94,28 @@ const Contact = () => {
       {/* Contact Information Section */}
       <section className="my-12">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
+          <h2
+            className="text-3xl font-semibold text-gray-800 mb-4"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
             Get in Touch
           </h2>
-          <p className="text-lg text-gray-600">
+          <p
+            className="text-lg text-gray-600"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
             Feel free to reach out to us via email or phone. We are here to
             help!
           </p>
         </div>
         <div className="w-full my-auto flex flex-col md:flex-row md:justify-evenly md:gap-8 ">
-          <div className="w-full md:w-2/5 mt-8 md:mt-0">
+          <div
+            className="w-full md:w-2/5 mt-8 md:mt-0"
+            data-aos="fade-right"
+            data-aos-duration="2000"
+          >
             <h3 className="text-2xl font-semibold text-gray-800 mb-4">
               Contact Information
             </h3>
@@ -109,7 +135,11 @@ const Contact = () => {
               Sunday: Closed
             </p>
           </div>
-          <div className="w-full md:w-2/5">
+          <div
+            className="w-full md:w-2/5"
+            data-aos="fade-left"
+            data-aos-duration="2000"
+          >
             <h3 className="text-2xl font-semibold text-gray-800 mb-4">
               Office Location
             </h3>
